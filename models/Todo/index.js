@@ -14,4 +14,9 @@ async function add(item){
     return newItem;
 }
 
-module.exports = {add}
+async function find(){
+    const db = await getDb();
+    return db.items;
+}
+
+module.exports = {add, find}

@@ -1,5 +1,5 @@
 const express = require('express')
-const { add } = require('./models/Todo')
+const { add, find } = require('./models/Todo')
 const app = express()
 const port = 5000
 
@@ -12,6 +12,11 @@ app.get('/', (req, res) => {
 app.post('/add-item', async (req,res) => {
     const item = await add(req.body.item)
     res.send(item)
+})
+
+app.get('/item', async (req,res) => {
+    const items = await find();
+    res.send(items)
 })
 
 app.listen(port, () => {
