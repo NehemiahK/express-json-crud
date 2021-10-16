@@ -1,0 +1,22 @@
+{
+  "name": "express-json-crud",
+  "version": "1.0.0",
+  "description": "A basic CRUD app using express and JSON file as the database",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NehemiahK/express-json-crud.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NehemiahK/express-json-crud/issues"
+  },
+  "homepage": "https://github.com/NehemiahK/express-json-crud#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
