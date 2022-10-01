@@ -1,9 +1,9 @@
-const express = require('express')
-const { add, find } = require('./models/Todo')
+import express, { json } from 'express'
+import { add, find } from './models/Todo/index.js'
 const app = express()
-const port = 5000
+const port = 5002
 
-app.use(express.json())
+app.use(json())
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
