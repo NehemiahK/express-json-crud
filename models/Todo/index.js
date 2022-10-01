@@ -1,11 +1,11 @@
-const {readFile, writeFile} = require('fs/promises')
+import {readFile, writeFile} from 'fs/promises'
 
 async function getDb(){
     const db = await readFile('models/Todo/todo.json', 'utf8')
     return JSON.parse(db)
 }
 
-async function add(item){
+export async function add(item){
     const db = await getDb();
     const id = db.items.length + 1;
     const newItem = {createdAt: new Date(), item, id}
@@ -14,9 +14,8 @@ async function add(item){
     return newItem;
 }
 
-async function find(){
+export async function find(){
     const db = await getDb();
     return db.items;
 }
 
-module.exports = {add, find}
