@@ -1,4 +1,5 @@
 import {readFile, writeFile} from 'fs/promises'
+import { hashPassword } from '../../services/PasswordHelper.js';
 
 export class User {
     constructor(name, email, password) {
@@ -15,7 +16,8 @@ export class User {
     async save(){
         const db = await this.getDb();
         const id = db.length + 1;
-        const newItem = {createdAt: new Date(), name: this.name, email: this.email, password: this.password, id}
+        const password = await hashPassword(this.password)
+        const newItem = {createdAt: new Date(), name: this.name, email: this.email, password, id}
         db.push(newItem)
         await writeFile('models/User/user.json', JSON.stringify(db), 'utf8')
         return newItem;
