@@ -9,5 +9,3 @@ export async function hashPassword(password) {
 export async function checkPasswordsMatch(password, hashedPassword) {
   return bcrypt.compare(password, hashedPassword);
 }
-
-export default router.post('/signup').post('login');
